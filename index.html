@@ -30,6 +30,9 @@
                             <a class="nav-link" href="#skills">Skills</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="#Projetos">Projetos</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="#contato">Contato</a>
                         </li>
                     </ul>
@@ -120,11 +123,80 @@
                 </div>
             </div>
         </section>
-
+        <section class="s-projetos py-5" id="Projetos">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Meus Projetos.</h2>
+                <div class="row" id="github-projects">
+                    <!-- Os projetos do GitHub serão inseridos aqui -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Script para buscar os projetos do GitHub e exibi-los -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const githubUsername = 'ipmedeiros'; 
+                const projectsContainer = document.getElementById('github-projects');
+                const apiUrl = `https://api.github.com/users/${githubUsername}/repos?sort=updated&direction=desc`;
+        
+                fetch(apiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        data.forEach(repo => {
+                            // Filtra apenas os repositórios públicos que não sejam forks
+                            if (!repo.fork) {
+                                const projectCard = `
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title">${repo.name}</h5>
+                                                <p class="card-text">${repo.description ? repo.description : 'Sem descrição disponível'}</p>
+                                            </div>
+                                            <div class="card-footer">
+                                                <a href="${repo.html_url}" class="btn btn-primary" target="_blank">Ver Projeto</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                                projectsContainer.innerHTML += projectCard;
+                            }
+                        });
+                    })
+                    .catch(error => {
+                        projectsContainer.innerHTML = '<p class="text-center">Não foi possível carregar os projetos.</p>';
+                        console.error('Erro ao buscar projetos do GitHub:', error);
+                    });
+            });
+        </script>
+        
         <section class="s-contato py-5" id="contato">
             <div class="container">
                 <h2 class="section-title text-center mb-5">Contato.</h2>
-                <!-- Conteúdo do formulário de contato pode ser adicionado aqui -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <form action="mailto:ipmedeirossilva@gmail.com" method="POST" enctype="text/plain">
+                            <div class="mb-2">
+                                <label for="nome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome" required>
+                            </div>
+                            <div class="mb-2">
+                                <label for="email" class="form-label">E-mail</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Seu e-mail" required>
+                            </div>
+                            <div class="mb-2">
+                                <label for="assunto" class="form-label">Assunto</label>
+                                <input type="text" class="form-control" id="assunto" name="assunto" placeholder="Assunto do contato" required>
+                            </div>
+                            <div class="mb-2">
+                                <label for="mensagem" class="form-label">Mensagem</label>
+                                <textarea class="form-control" id="mensagem" name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </section>
 
