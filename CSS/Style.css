@@ -84,7 +84,7 @@ body {
 }
 
 .home-title {
-    font-size: 6rem; /* Ajuste conforme necessário */
+    font-size: 6rem; /* Ajuste o tamanho conforme necessário */
     font-weight: 800;
     letter-spacing: -.04em;
     background-image: linear-gradient(90deg, var(--color-start), var(--color-end));
@@ -93,9 +93,21 @@ body {
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
     white-space: normal; /* Permite quebra de linha */
-    overflow: visible; /* Exibe todo o conteúdo */
+    overflow: visible;
     display: inline-block;
-    max-width: none; /* Remove restrição de largura */
+    max-width: 100%; /* Garante que o título não ultrapasse a largura do contêiner */
+}
+
+@media (max-width: 768px) {
+    .home-title {
+        font-size: 4rem; /* Diminui o tamanho da fonte para dispositivos móveis */
+    }
+}
+
+@media (max-width: 480px) {
+    .home-title {
+        font-size: 3rem; /* Diminui ainda mais para telas menores */
+    }
 }
 
 .typing-effect {
