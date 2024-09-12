@@ -43,7 +43,7 @@ Para visualizar e editar o projeto, você precisará de um editor de código com
 1. Clone o repositório em sua máquina:
 
    ```bash
-   git clone https://github.com/usuario/repositorio.git
+   git clone https://github.com/ipmedeiros/Projeto-Coder-House
 
 ## Estrutura do Projeto
 
