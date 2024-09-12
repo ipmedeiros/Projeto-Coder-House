@@ -58,7 +58,3 @@ Para visualizar e editar o projeto, você precisará de um editor de código com
 ## Contribuições
 
 Contribuições são bem-vindas! Se você encontrar problemas, faça um fork deste repositório e envie um pull request com suas melhorias.
-
-## Licença
-
-Este projeto é licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
