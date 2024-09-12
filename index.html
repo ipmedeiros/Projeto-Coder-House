@@ -7,6 +7,8 @@
     <!-- Link do Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="CSS/Style.css">
+    <script defer src="app.js"></script>
+
     <title>Isabella Pereira</title>
 </head>
 
@@ -171,57 +173,65 @@
         
         <section class="s-contato py-5" id="contato">
             <div class="container">
-                <h2 class="section-title text-center mb-5">Contato.</h2>
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <form id="contactForm" action="send_email.php" method="POST">
-                            <div class="mb-2">
-                                <label for="nome" class="form-label">Nome</label>
-                                <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome" required>
-                            </div>
-                            <div class="mb-2">
-                                <label for="email" class="form-label">E-mail</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Seu e-mail" required>
-                            </div>
-                            <div class="mb-2">
-                                <label for="assunto" class="form-label">Assunto</label>
-                                <input type="text" class="form-control" id="assunto" name="assunto" placeholder="Assunto do contato" required>
-                            </div>
-                            <div class="mb-2">
-                                <label for="mensagem" class="form-label">Mensagem</label>
-                                <textarea class="form-control" id="mensagem" name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary">Enviar</button>
-                            </div>
-                        </form>
-                        <div id="formResponse" class="text-center mt-3"></div>
+              <h2 class="section-title text-center mb-5">Contato.</h2>
+              <div class="row justify-content-center">
+                <div class="col-lg-6">
+                  <form id="contactForm" action="https://formsubmit.co/ipmedeirossilva@gmail.com" method="POST">
+                    <!-- Campos ocultos para configurar o FormSubmit -->
+                    <input type="hidden" name="_captcha" value="false"> <!-- Desabilita o captcha do FormSubmit -->
+          
+                    <div class="mb-2">
+                      <label for="nome" class="form-label">Nome</label>
+                      <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome" required>
                     </div>
+                    <div class="mb-2">
+                      <label for="email" class="form-label">E-mail</label>
+                      <input type="email" class="form-control" id="email" name="email" placeholder="Seu e-mail" required>
+                    </div>
+                    <div class="mb-2">
+                      <label for="assunto" class="form-label">Assunto</label>
+                      <input type="text" class="form-control" id="assunto" name="assunto" placeholder="Assunto do contato" required>
+                    </div>
+                    <div class="mb-2">
+                      <label for="mensagem" class="form-label">Mensagem</label>
+                      <textarea class="form-control" id="mensagem" name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
+                    </div>
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                  </form>
+                  <!-- Resposta do formulário será exibida aqui -->
+                  <div id="formResponse" class="text-center mt-3"></div>
                 </div>
+              </div>
             </div>
-        </section>        
-
-        <script>
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            
-            var formData = new FormData(this);
+          </section>       
         
-            fetch('send_email.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("formResponse").innerText = data;
-                document.getElementById("contactForm").reset();
-            })
-            .catch(error => {
-                document.getElementById("formResponse").innerText = "Ops! Algo deu errado, e não conseguimos enviar sua mensagem.";
-                console.error('Erro:', error);
+        <script>
+            document.getElementById("contactForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // Impede o comportamento padrão de recarregar a página
+                
+                // Limpa os campos do formulário imediatamente após o clique
+                this.reset(); 
+        
+                var formData = new FormData(this); // Obtém os dados do formulário
+        
+                fetch('https://formsubmit.co/ajax/ipmedeirossilva@gmail.com', {  
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Exibe mensagem de sucesso após o envio
+                    document.getElementById("formResponse").innerHTML = "<p class='text-success'>Mensagem enviada com sucesso!</p>";
+                })
+                .catch(error => {
+                    // Exibe mensagem de erro em caso de falha
+                    document.getElementById("formResponse").innerHTML = "<p class='text-danger'>Ops! Algo deu errado. Tente novamente mais tarde.</p>";
+                    console.error('Erro:', error);
+                });
             });
-        });
-    </script>
+        </script> 
 
         <footer class="footer py-4">
             <div class="container text-center">
