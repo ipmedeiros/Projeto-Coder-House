@@ -10,7 +10,6 @@ Este repositório contém o código-fonte de uma página web responsiva constru�
 - [Como Usar](#como-usar)
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Contribuições](#contribuições)
-- [Licença](#licença)
 
 ## Visão Geral
 
