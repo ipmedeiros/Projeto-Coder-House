@@ -21,7 +21,6 @@ A página foi projetada para funcionar bem em diversos tamanhos de tela, desde m
 ## Funcionalidades
 
 - **Cabeçalho fixo**: Mantém o menu sempre visível no topo da página.
-- **Efeito de Digitação**: Um título animado que simula a digitação.
 - **Design Responsivo**: Layout ajustável para diferentes tamanhos de tela, incluindo smartphones e tablets.
 - **Transições suaves**: Elementos com transições suaves de cor e animações ao interagir.
 - **Botões com ícones**: Botões personalizados para redes sociais com ícones.
@@ -31,7 +30,8 @@ A página foi projetada para funcionar bem em diversos tamanhos de tela, desde m
 - **HTML5**: Para a estrutura semântica do site.
 - **CSS3**: Para a estilização, incluindo gradientes, animações e responsividade.
 - **Google Fonts (Inter)**: Para uma tipografia moderna e legível.
-- **Media Queries**: Para garantir que o design funcione bem em dispositivos de tamanhos variados.
+- **Bootstrap**: Para garantir que o design funcione bem em dispositivos de tamanhos variados.
+- **JavaScript**: Para implementar funcionalidades interativas e dinâmicas, como validação de formulários, utilizado para melhorar a experiência do usuário e adicionar comportamentos responsivos e personalizados às páginas web.
 
 ## Como Usar
 
