@@ -10,7 +10,6 @@ Este repositório contém o código-fonte de uma página web responsiva constru�
 - [Como Usar](#como-usar)
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Contribuições](#contribuições)
-- [Licença](#licença)
 
 ## Visão Geral
 
@@ -44,7 +43,7 @@ Para visualizar e editar o projeto, você precisará de um editor de código com
 1. Clone o repositório em sua máquina:
 
    ```bash
-   git clone https://github.com/usuario/repositorio.git
+   git clone https://github.com/ipmedeiros/Projeto-Coder-House
 
 ## Estrutura do Projeto
 
@@ -58,7 +57,3 @@ Para visualizar e editar o projeto, você precisará de um editor de código com
 ## Contribuições
 
 Contribuições são bem-vindas! Se você encontrar problemas, faça um fork deste repositório e envie um pull request com suas melhorias.
-
-## Licença
-
-Este projeto é licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
